@@ -27,7 +27,6 @@ public class DangKy extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // validate o nhap trong, password nhap lai dung
                 String sUserName = edtUsername.getText().toString();
                 String sPassword = edtPassword.getText().toString();
                 String sRetypePass = edtRetypePassword.getText().toString();
