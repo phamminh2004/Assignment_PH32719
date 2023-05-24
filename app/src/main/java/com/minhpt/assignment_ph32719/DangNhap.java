@@ -46,12 +46,7 @@ public class DangNhap extends AppCompatActivity {
                 } else if (sPassword == null || sPassword.trim().equals("")) {
                     Toast.makeText(getApplicationContext(), "Cần nhập Password!", Toast.LENGTH_SHORT).show();
                 } else {
-                    btnLogin.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(DangNhap.this, TrangChu.class));
-                        }
-                    });
+                    startActivity(new Intent(DangNhap.this, TrangChu.class));
                 }
             }
         });
