@@ -30,7 +30,6 @@ public class Welcome extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Toast.makeText(getApplicationContext(), "Vào onStop Welcome", Toast.LENGTH_SHORT).show();
         finish();
     }
 }

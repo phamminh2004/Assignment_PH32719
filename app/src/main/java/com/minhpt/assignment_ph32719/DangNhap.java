@@ -51,25 +51,4 @@ public class DangNhap extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        Toast.makeText(getApplicationContext(), "Vào onPause DangNhap", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-
-        Toast.makeText(getApplicationContext(), "Vào onStop DangNhap", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Toast.makeText(getApplicationContext(), "Vào onResume DangNhap", Toast.LENGTH_SHORT).show();
-    }
 }
