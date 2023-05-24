@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class Welcome extends AppCompatActivity {
 
@@ -19,15 +20,17 @@ public class Welcome extends AppCompatActivity {
                 } catch (Exception e) {
 
                 } finally {
-                    startActivity(new Intent(Welcome.this, DangNhap.class));
+                    startActivity(new Intent(Welcome.this, DangKy.class));
                 }
             }
         };
         time.start();
     }
 
-    protected void onPause() {
-        super.onPause();
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(getApplicationContext(), "Vào onStop Welcome", Toast.LENGTH_SHORT).show();
         finish();
     }
 }

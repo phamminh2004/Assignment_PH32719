@@ -64,20 +64,20 @@ public class DangKy extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        Toast.makeText(getApplicationContext(), "Vao onPause Activity 1", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Vào onPause DangKy", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
 
-        Toast.makeText(getApplicationContext(), "Vao onStop Activity 1", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Vào onStop DangKy", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        Toast.makeText(getApplicationContext(), "Vao onResume Activity 1", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Vào onResume DangKy", Toast.LENGTH_SHORT).show();
     }
 }
