@@ -20,7 +20,7 @@ public class Welcome extends AppCompatActivity {
                 } catch (Exception e) {
 
                 } finally {
-                    startActivity(new Intent(Welcome.this, DangKy.class));
+                    startActivity(new Intent(Welcome.this, DangNhap.class));
                 }
             }
         };
