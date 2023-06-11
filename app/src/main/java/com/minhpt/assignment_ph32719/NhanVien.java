@@ -4,6 +4,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -45,8 +46,21 @@ public class NhanVien extends AppCompatActivity {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == 1) {
-                        NhanVienModel nhanVienModel = (NhanVienModel) result.getData().getSerializableExtra("nhanvien");
+                        NhanVienModel nhanVienModel = (NhanVienModel) result.getData().getSerializableExtra("data");
                         arrNV.set(index, nhanVienModel);
+                        nhanVienAdapter.notifyDataSetChanged();
+                        luuDulieu();
+                    }
+                }
+            });
+    ActivityResultLauncher<Intent> adData = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == 1) {
+                        NhanVienModel nhanVienModel = (NhanVienModel) result.getData().getSerializableExtra("data");
+                        arrNV.add(nhanVienModel);
                         nhanVienAdapter.notifyDataSetChanged();
                         luuDulieu();
                     }
@@ -122,6 +136,16 @@ public class NhanVien extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.add) {
+            Intent intent = new Intent(getApplicationContext(), Update_Add_NhanVien.class);
+            adData.launch(intent);
+            luuDulieu();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
@@ -170,7 +194,7 @@ public class NhanVien extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     index = position;
-                    Intent intent = new Intent(getApplicationContext(), UpdateNhanVien.class);
+                    Intent intent = new Intent(getApplicationContext(), Update_Add_NhanVien.class);
                     intent.putExtra("nhanvien", arrNV.get(position));
                     updateData.launch(intent);
                     luuDulieu();

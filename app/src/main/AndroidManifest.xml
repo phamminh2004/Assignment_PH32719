@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Assignment_PH32719"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateNhanVien"
+            android:name=".Update_Add_NhanVien"
             android:exported="false" />
         <activity
             android:name=".NhanVien"
