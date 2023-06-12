@@ -10,6 +10,8 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -203,9 +205,21 @@ public class NhanVien extends AppCompatActivity {
             btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    list.remove(position);
-                    notifyDataSetChanged();
-                    luuDulieu();
+                    new AlertDialog.Builder(activity)
+                            .setMessage("Bạn có chắc chắn muốn xóa?")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int index) {
+                                    list.remove(position);
+                                    notifyDataSetChanged();
+                                    luuDulieu();
+                                }
+                            })
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                }
+                            }).show();
                 }
             });
             return convertView;
